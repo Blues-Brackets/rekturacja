@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
+#include <stdint.h>
 
 struct message
 {
@@ -24,7 +26,7 @@ int parse_message(uint8_t *message, int length, struct message *msg)
 
 int main()
 {
-  uint8_t message[] = {0x01, 0xFF, 0xFF, 0x02};
+  uint8_t message[] = {0x01, 0x02, 0x00, 0x02, 0x03};
   struct message msg;
 
   int ret = parse_message(message, sizeof(message), &msg);
